@@ -10,6 +10,7 @@ var path = require('path');
 var compare = require('node-version-compare');
 var glob = require('glob');
 var xcode = require('xcode');
+var fs = require('fs');
 var ConfigXmlHelper = require('../configXmlHelper.js');
 var IOS_DEPLOYMENT_TARGET = '8.0';
 var COMMENT_KEY = /_comment$/;
@@ -163,7 +164,6 @@ function loadProjectFile() {
       projectFile = {
         'xcode': xcodeproj,
         write: function () {
-          var fs = context.requireCordovaModule('fs');
             
           var frameworks_file = path.join(iosPlatformPath(), 'frameworks.json');
           var frameworks = {};

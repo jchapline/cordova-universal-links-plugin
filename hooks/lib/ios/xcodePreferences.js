@@ -9,6 +9,7 @@ Which is:
 var path = require('path');
 var compare = require('node-version-compare');
 var glob = require('glob');
+var xcode = require('xcode');
 var ConfigXmlHelper = require('../configXmlHelper.js');
 var IOS_DEPLOYMENT_TARGET = '8.0';
 var COMMENT_KEY = /_comment$/;
@@ -156,7 +157,7 @@ function loadProjectFile() {
       
       var pbxPath = project_files[0];
       
-      var xcodeproj = context.requireCordovaModule('xcode').project(pbxPath);
+      var xcodeproj = xcode.project(pbxPath);
       xcodeproj.parseSync();
       
       projectFile = {
